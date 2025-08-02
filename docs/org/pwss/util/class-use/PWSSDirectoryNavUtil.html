@@ -51,7 +51,32 @@ loadScripts(document, 'script');</script>
 <div class="header">
 <h1 title="Uses of Record Class org.pwss.util.PWSSDirectoryNavUtil" class="title">Uses of Record Class<br>org.pwss.util.PWSSDirectoryNavUtil</h1>
 </div>
-No usage of org.pwss.util.PWSSDirectoryNavUtil</main>
+<h2>Retrieving a List of files with no subfolders to the selected folder (static)</h2>
+
+<pre><code>
+import org.pwss.util.PWSSDirectoryNavUtil;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+
+public class Main {
+
+    public static void main(String[] args) throws IOException,
+            ExecutionException,
+            InterruptedException {
+        File selectedFolder =
+                new File("C:\\Program Files (x86)\\Battle.net");
+
+        List<File> noSubfolderList = PWSSDirectoryNavUtil
+                .GetSelectedFolderWithoutSubFolders(selectedFolder);
+        noSubfolderList
+                .forEach(file -> System.out.println(file.getAbsolutePath()));
+    }
+}
+</code></pre>
+</main>
 <footer role="contentinfo">
 <hr>
 <p class="legal-copy"><small>Copyright PWSSORG 2025. All rights reserved.</small></p>

@@ -51,7 +51,36 @@ loadScripts(document, 'script');</script>
 <div class="header">
 <h1 title="Uses of Class org.pwss.io_file.FileTraverserImpl" class="title">Uses of Class<br>org.pwss.io_file.FileTraverserImpl</h1>
 </div>
-No usage of org.pwss.io_file.FileTraverserImpl</main>
+<h2>Retrieving a Future List of File</h2>
+
+<pre><code>import org.pwss.io_file.FileTraverser;
+import org.pwss.io_file.FileTraverserImpl;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+
+public class Main {
+    public static void main(String[] args) throws IOException,
+            ExecutionException,
+            InterruptedException {
+        FileTraverser fileTraverser = new FileTraverserImpl();
+
+        Future<List<File>> future = fileTraverser
+                .traverse("C:\\Users\\PWSS\\" +
+                        "Downloads\\ShredChat-master\\ShredChat-master");
+        while (!future.isDone()) {
+
+        }
+        List<File> fileList = future.get();
+        fileList.forEach(f -> System.out.println(f.getAbsolutePath()));
+        fileTraverser.shutdownThreadPool();
+    }
+} </code></pre>
+
+</main>
 <footer role="contentinfo">
 <hr>
 <p class="legal-copy"><small>Copyright PWSSORG 2025. All rights reserved.</small></p>
