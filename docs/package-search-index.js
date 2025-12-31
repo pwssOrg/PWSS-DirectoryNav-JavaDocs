@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"org.pwss.io_file"},{"l":"org.pwss.util"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"org.pwss.io_file"},{"l":"org.pwss.util"}];updateSearchResults();
